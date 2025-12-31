@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Tayyab Express Brand Identity */
+  --primary-color: #0f172a; /* Deep Midnight Blue */
+  --secondary-color: #3b82f6; /* Modern Tech Blue */
+  --accent-color: #fbbf24; /* Electric Gold (for buttons/highlights) */
+  --bg-color: #f1f5f9; /* Soft Cool Gray */
+  --text-dark: #1e293b;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Modern, clean font */
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #e2e8f0; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+/* --- RESPONSIVE LAYOUT RULES --- */
+
+/* DEFAULT (Desktop) */
+.hero-container {
+  flex-direction: row;
+}
+.hero-sidebar {
+  display: block;
+  width: 240px;
+}
+.hero-slider {
+  width: calc(100% - 240px);
+}
+.navbar-container {
+  flex-wrap: nowrap;
+}
+.search-box {
+  order: 0;
+  margin: 0 40px;
+  width: auto;
+}
+.nav-links {
+  position: static;
+  background: transparent;
+  width: auto;
+  padding: 0;
+}
+
+/* MOBILE (Screens smaller than 768px) */
+@media (max-width: 768px) {
+  
+  /* Navbar: Stack Logo/Cart on top, Search bar below */
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .search-box {
+    order: 3; /* Move to bottom */
+    width: 100%; /* Full width */
+    margin: 0 !important;
+  }
+  
+  /* Hero: Hide sidebar, make slider full width */
+  .hero-container {
+    flex-direction: column;
+    height: auto !important;
+  }
+  .hero-sidebar {
+    display: none; /* Hide categories on mobile to save space */
+  }
+  .hero-slider {
+    width: 100% !important;
+    height: 200px !important; /* Shorter banner on phone */
+  }
+
+  /* Adjust Home Grid gaps */
+  .product-grid {
+    grid-template-columns: 1fr 1fr !important; /* 2 items per row */
+    gap: 10px !important;
+  }
+  
+  /* Hide text in buttons on very small screens */
+  .nav-btn-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr !important; /* 1 item per row on tiny screens */
+  }
+}
