@@ -47,7 +47,7 @@ const Profile = () => {
     reader.onloadend = async () => {
       try {
         const base64Image = reader.result;
-        const res = await axios.put(`http://localhost:5000/api/auth/profile/${user._id}`, {
+        const res = await axios.put(`http://tayyab-express-server.vercel.app/api/auth/profile/${user._id}`, {
           image: base64Image
         });
         updateUser(res.data.user);

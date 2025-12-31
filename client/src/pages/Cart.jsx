@@ -28,7 +28,7 @@ const Cart = () => {
     const confirm = window.confirm(`Place order for Rs. ${grandTotal}?`);
     if (confirm) {
       try {
-        await axios.post('http://localhost:5000/api/checkout', { 
+        await axios.post('https://tayyab-express-server.vercel.app/api/auth/login', { 
           cartItems: cart,
           userId: user._id || user.id, // Send User ID
           userName: user.fullName,     // Send Name

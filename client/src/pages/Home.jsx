@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    let url = 'http://localhost:5000/api/products';
+    let url = 'http://tayyab-express-server.vercel.app/api/products';
     if (searchTerm) url += `?q=${encodeURIComponent(searchTerm)}`;
     else if (categoryTerm) url += `?category=${encodeURIComponent(categoryTerm)}`;
 

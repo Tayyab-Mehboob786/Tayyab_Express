@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const [activeTab, setActiveTab] = useState('desc');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    axios.get('tayyab-express-server.vercel.app/api/products')
       .then(res => {
         const found = res.data.find(p => p._id === id);
         setProduct(found);
