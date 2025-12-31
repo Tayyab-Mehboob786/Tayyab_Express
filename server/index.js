@@ -152,11 +152,13 @@ app.get('/api/orders/:userId', async (req, res) => {
 });
 
 // ==========================================
-// SERVER STARTUP
+// SERVER STARTUP FOR VERCEL
 // ==========================================
+
+// Connect to DB
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected Successfully"))
+  .then(() => console.log("✅ MongoDB Connected"))
   .catch(err => console.log("❌ DB Error:", err));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+// Export the app for Vercel (INSTEAD of app.listen)
+export default app;
